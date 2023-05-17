@@ -1,5 +1,7 @@
 # Kev's Reverse Polish Notation Calculator
 
+![Reverse Polish Notation](./src/assets/polishFlag.webp)
+
 A commandline application that computes Reverse Polish notation
 
 ## Architecture and technical reasoning
@@ -101,3 +103,12 @@ Features of the RPN calculator inclduing the main calculation function
    Checks that inputs are of type number or a defined enum operator. Else returns an error message and does not calculate. Application continues to accept arguments afterwards
 4. **helpMessage**: Prints a formatted multiline helper which contains information on how to use the application, the commands you can run, and an example
 5. **operations**: An object containing the four basic mathematical functions in key:value pairs
+
+## Things I would do a bit differently
+
+1. Flesh out a more well designed CLI application/experience
+
+- Was going to implement ascii art on application execution, but formatting with the help message was off
+
+2. More fleshed out error handling system. Currently it just prints out an error to the console when the arguments are invalid. The application continues to work as it should. But perhaps a boolean to flag that an error has occurred might be better
+3. Function to detect if the returned resule needs to be rounded. Was using to fixed, but we don't want integers to look like `3.00`
