@@ -8,7 +8,7 @@ import { red, green, blue, magenta } from 'colorette';
 import { Commands } from './types/types.ts';
 
 function main() {
-  const rl = readline.createInterface({ input, output });
+  const rl = readline.createInterface({ input, output, terminal: false });
 
   let stack: number[] = [];
 
@@ -61,7 +61,5 @@ function main() {
 
   rl.question(blue(`${helpMessage()}\n`), (answer) => handleInput(answer));
 }
-
-main();
 
 export default main;
