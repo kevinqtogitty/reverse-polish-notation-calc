@@ -4,7 +4,7 @@ import { checkInputsValid } from './utils/checkInputsValid.ts';
 import { error, errorMessages } from './utils/error.ts';
 import { calculateRpn } from './utils/rpnCalc.ts';
 import { helpMessage } from './utils/help.ts';
-import { red, green, blue, magenta } from 'colorette';
+import { red, green, magenta, cyan } from 'colorette';
 import { Commands } from './types/types.ts';
 
 function main() {
@@ -26,7 +26,7 @@ function main() {
       }
     },
     h: {
-      do: () => console.log(blue(helpMessage()))
+      do: () => console.log(cyan(helpMessage()))
     },
     s: {
       do: () => console.log(magenta(`Current arguments = ${stack}`))
@@ -59,7 +59,9 @@ function main() {
     handleInput(answer);
   });
 
-  rl.question(blue(`${helpMessage()}\n`), (answer) => handleInput(answer));
+  rl.question(cyan(`${helpMessage()}\n`), (answer) => handleInput(answer));
 }
+
+main();
 
 export default main;
