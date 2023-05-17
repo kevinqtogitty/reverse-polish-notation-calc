@@ -108,7 +108,10 @@ Features of the RPN calculator inclduing the main calculation function
 
 1. Flesh out a more well designed CLI application/experience
 
-- Was going to implement ascii art on application execution, but formatting with the help message was off
+   - Was going to implement ascii art on application execution, but formatting with the help message was off
 
 2. More fleshed out error handling system. Currently it just prints out an error to the console when the arguments are invalid. The application continues to work as it should. But perhaps a boolean to flag that an error has occurred might be better
 3. Function to detect if the returned resule needs to be rounded. Was using to fixed, but we don't want integers to look like `3.00`
+
+4. One test does not pass for a console.log when receiveing an invalid input, expected and recieved are identical. Would have to do more digging as to why just cannot match
+   - ![Test Error](./src/assets/testError.webp)
