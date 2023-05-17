@@ -1,6 +1,6 @@
+import { red } from 'colorette';
 import { errorMessages, error } from './error.ts';
 import { operations } from './operations.ts';
-import colors from 'colors';
 
 export const calculateRpn = (args: string[], stack: number[]) => {
   for (const i in args) {
@@ -14,7 +14,7 @@ export const calculateRpn = (args: string[], stack: number[]) => {
       const a = stack.pop();
       const b = stack.pop();
       if (a === undefined || b === undefined) {
-        console.log(colors.red(error(errorMessages.emptyStack)));
+        console.log(red(error(errorMessages.emptyStack)));
         return;
       }
       let res = operations[operation](b, a);
