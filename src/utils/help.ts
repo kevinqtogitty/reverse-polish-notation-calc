@@ -18,7 +18,7 @@ export const helpMessage = () => {
         h, -help              Shows this help message
 
     Examples:
-        > 5 5 5 8 + + -       # result: -13
+        > 5 5 5 8 + + -       result = -13
 
 \\ ------------------------------------------------ /
 
