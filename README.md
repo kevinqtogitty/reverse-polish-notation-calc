@@ -44,9 +44,24 @@ Current arguments = 5,5,5,8
 -13
 ```
 
+## Functional reasoning
+
+Features of the RPN calculator including the main calculation function
+
+1. **rpnCalc**: Calculates the RPN and returns the result given that the arguments have been validated. Can accept multi-line or single line RPN.
+   - The function implements a stack data structure and loops over the array of arguments, for each argument...
+     - If the current argument is an operand it is pushed onto the stack
+     - if the current argument is an operator it will pop the last two arguments off the stack, compute, and push that result back onto the stack
+     - this continues until the stack is empty
+2. **error**: Returns an Error message given one of two messages defined in the errorMessage object.
+3. **checkInputsValid**:
+   Checks that inputs are of type number or a defined enum operator. Else returns an error message and does not calculate. Application continues to accept arguments afterwards
+4. **helpMessage**: Prints a formatted multiline helper which contains information on how to use the application, the commands you can run, and an example
+5. **operations**: An object containing the four basic mathematical functions in key:value pairs
+
 ## Commands
 
-To provide a better CLI experience
+To provide a better CLI application experience, some simple helper commands have been implemented
 
 ```
     q: quit              Exits the cli-application
@@ -89,29 +104,14 @@ Unit tests have been implemented for all functions using the **Jest** testing li
 - To run all tests use the command `yarn test`
 - To run a single test suit for a particular function use the command `yarn test fileNameHere.test.ts`
 
-## Functional reasoning
-
-Features of the RPN calculator inclduing the main calculation function
-
-1. **rpnCalc**: Calculates the RPN and returns the RPN given that the arguments have been validated. Can accept multiline or single line RPN.
-   - The function implements a stack data structure and loops over the array of arguments, for each argument...
-     - If the current argument is an operand it is pushed onto the stack
-     - if the current argument is an operator it will pop the last two arguments off the stack, compute, and push that result back onto the stack
-     - this continues until the stack is empty
-2. **error**: Returns an Error message given one of two messages defined in the errorMessage object.
-3. **checkInputsValid**:
-   Checks that inputs are of type number or a defined enum operator. Else returns an error message and does not calculate. Application continues to accept arguments afterwards
-4. **helpMessage**: Prints a formatted multiline helper which contains information on how to use the application, the commands you can run, and an example
-5. **operations**: An object containing the four basic mathematical functions in key:value pairs
-
 ## Things I would do a bit differently
 
 1. Flesh out a more well designed CLI application/experience
 
-   - Was going to implement ascii art on application execution, but formatting with the help message was off
+   - Was going to implement ascii art on application execution with figlet, but formatting with the help message was off
 
 2. More fleshed out error handling system. Currently it just prints out an error to the console when the arguments are invalid. The application continues to work as it should. But perhaps a boolean to flag that an error has occurred might be better
 3. Function to detect if the returned resule needs to be rounded. Was using to fixed, but we don't want integers to look like `3.00`
 
-4. One test does not pass for a console.log when receiveing an invalid input, expected and recieved are identical. Would have to do more digging as to why just cannot match
+4. One test does not pass for a console.log when receiving an invalid input, expected and recieved are identical. Would have to do more digging as to why jest cannot match
    - ![Test Error](./src/assets/testError.webp)
