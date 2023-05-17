@@ -1,23 +1,26 @@
 export const helpMessage = () => {
   return `
-// --- Reverse Polish Notation Calculator Help-Desk -- \\
 
-How to use:
-    yarn start             Start the calculator
+            Welcome to Kev's RPN Calculator!
 
-Supported Operations:
-    '+'                    Addition
-    '-'                    Subtraction
-    '*'                    Multiplication
-    '/'                    Division
-    
-Commands:
-    q, -quit              Exit the cli-application
-    r, -clear             Reset the arguments
-    s, -show              Show the arguments you passed in through the terminal
-    h, -help              Shows this help messaga
+/ ------------------ Help-Desk ------------------ \\
 
+    Supported Operations:
+        '+'                    Addition
+        '-'                    Subtraction
+        '*'                    Multiplication
+        '/'                    Division
 
-Examples:
-    > 5 5 5 8 + + -       # result: -13`;
+    Commands:
+        q, -quit              Exit the cli-application
+        r, -reset             Reset the arguments
+        s, -show              Show the arguments you passed in through the terminal
+        h, -help              Shows this help message
+
+    Examples:
+        > 5 5 5 8 + + -       # result: -13
+
+\\ ------------------------------------------------ /
+
+`;
 };
