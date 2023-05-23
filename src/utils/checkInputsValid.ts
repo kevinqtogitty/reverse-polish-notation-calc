@@ -5,9 +5,14 @@ const checkInputsValid = (inputs: string[]) => {
   return isValid;
 };
 
-const isOperatorOrNumber = (char: string | number) => {
+const isOperatorOrNumber = (char: string) => {
   const isValid = !isNaN(Number(char)) || operations.hasOwnProperty(char);
   return isValid;
 };
 
-export { checkInputsValid, isOperatorOrNumber };
+const isValueAFloat = (value: number) => {
+  const isFloat = value % 1 !== 0;
+  return isFloat;
+};
+
+export { checkInputsValid, isOperatorOrNumber, isValueAFloat };
