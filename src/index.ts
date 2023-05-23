@@ -1,6 +1,6 @@
 import * as readline from 'node:readline';
 import { stdin as input, stdout as output } from 'node:process';
-import { checkInputsValid } from './utils/checkInputsValid.ts';
+import { checkInputsValid, isValueAFloat } from './utils/checkInputsValid.ts';
 import { error, errorMessages } from './utils/error.ts';
 import { calculateRpn } from './utils/rpnCalc.ts';
 import { helpMessage } from './utils/help.ts';
@@ -52,7 +52,13 @@ function main() {
 
     // If everything is ok, operate
     const result = calculateRpn(filteredArgs, stack);
-    if (result) console.log(result);
+    if (result) {
+      if (isValueAFloat(result)) {
+        console.log(result.toFixed(3));
+        return;
+      }
+      console.log(result);
+    }
   };
 
   rl.on('line', (answer) => {
